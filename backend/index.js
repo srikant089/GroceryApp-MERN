@@ -7,13 +7,14 @@ dotenv.config();
 import { connectDB } from './config/connectDB.js';
 import { connectCloudinary } from './config/cloudinary.js';
 
-import authRoutes from './routes/auth.routes.js';
-import sellerRoutes from './routes/seller.routes.js';
-import categoryRoutes from './routes/category.routes.js';
-import productRoutes from './routes/product.routes.js';
-import cartRoutes from './routes/cart.routes.js';
-import orderRoutes from './routes/order.routes.js';
-import addessRoutes from './routes/address.routes.js';
+import authRoute from './routes/auth.routes.js';
+import sellerRoute from './routes/seller.routes.js';
+import categoryRoute from './routes/category.routes.js';
+import productRoute from './routes/product.routes.js';
+import cartRoute from './routes/cart.routes.js';
+import orderRoute from './routes/order.routes.js';
+import addessRoute from './routes/address.routes.js';
+import paymentRoute from './routes/payment.routes.js';
 
 
 const app = express();
@@ -33,13 +34,14 @@ app.get("/",(req,res)=>{
     res.send("hello");
 })
 
-app.use('/api/auth', authRoutes);
-app.use('/api/seller', sellerRoutes);
-app.use('/api/category', categoryRoutes);
-app.use('/api/product', productRoutes);
-app.use('/api/cart', cartRoutes);
-app.use('/api/order', orderRoutes);
-app.use('/api/address', addessRoutes);
+app.use('/api/auth', authRoute);
+app.use('/api/seller', sellerRoute);
+app.use('/api/category', categoryRoute);
+app.use('/api/product', productRoute);
+app.use('/api/cart', cartRoute);
+app.use('/api/order', orderRoute);
+app.use('/api/address', addessRoute);
+app.use('/api/payment', paymentRoute);
 
 app.listen(PORT, () => {
     connectDB();
